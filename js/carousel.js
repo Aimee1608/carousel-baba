@@ -7,8 +7,8 @@ $(function(){
             count:$('.poster-list li').length,//娃娃总数
             totalWidth:parseFloat($('.poster-list').css("width")),//娃娃的总宽度
             itemWidth:parseFloat($('.poster-list li').css("width")),//娃娃的宽度
-            margin:20,//娃娃的距离
-            posterWidth:parseFloat($('.poster-list li').css("width"))+20,//包含margin的娃娃的宽
+            margin:50,//娃娃的距离
+            posterWidth:parseFloat($('.poster-list li').css("width"))+50,//包含margin的娃娃的宽
             speed:5,//娃娃移动的速度
             timer:null,//定时器
             itemArray:$('.poster-list li'),//娃娃数组
@@ -60,7 +60,7 @@ $(function(){
             for(var i=0;i<Carousel.data.itemLeft.length;i++){
                 var left = Carousel.data.itemLeft[i];
                 console.log(left,i);
-                if(left<=zleft&&(zleft+zwidth)<=(left+Carousel.data.itemWidth)){
+                if(left<=zleft&&(zleft)<=(left+Carousel.data.itemWidth)){
                     console.log(i);
                     $(Carousel.data.itemArray[i]).addClass('active');
                     Carousel.data.catched = true;

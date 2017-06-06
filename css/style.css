@@ -176,8 +176,7 @@ body {
 }
 .poster-main ul li {
   box-sizing: border-box;
-  padding: 0 0.53333333rem;
-  width: 2.66666667rem;
+  width: 2rem;
   height: 1.6rem;
   position: absolute;
   left: 0;
