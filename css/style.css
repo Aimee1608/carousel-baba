@@ -228,3 +228,26 @@ body {
 .result p {
   display: none;
 }
+.answer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+}
+.answer img {
+  width: 100%;
+  height: 100%;
+}
+.answer button {
+  position: absolute;
+  left: 2.66666667rem;
+  bottom: 1.33333333rem;
+}
+#choosed {
+  display: none;
+}
+#again {
+  display: none;
+}
