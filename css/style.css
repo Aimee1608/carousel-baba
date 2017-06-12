@@ -160,21 +160,135 @@ body {
   position: relative;
   color: #333;
 }
-.poster-main {
+/**���ֲ���**/
+.btn-music {
+  width: 0.88rem;
+  height: 0.88rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  position: fixed;
+  top: 0.48rem;
+  right: 0.48rem;
+}
+.music {
+  width: 100%;
+  height: 100%;
+}
+@-webkit-keyframes music-btn {
+  form {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes music-btn {
+  form {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+.page-landscape {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+.page-landscape h3 {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 0.37333333rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+.page-portrait {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden ;
+  -webkit-overflow-x: hidden ;
+  overflow-y: scroll;
+  -webkit-overflow-y: scroll ;
+}
+.page-portrait .load-page {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+.page-portrait .load-page .img-load-now {
+  width: 2.44rem;
+  height: 4rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.page-portrait .load-page .img-load-now .loading {
+  background-size: 2.44rem 2.52rem;
+  width: 2.44rem;
+  height: 2.52rem;
+}
+.page-portrait .load-page .img-load-now .mask {
+  width: 100%;
+  height: 0.66666667rem;
+  text-align: center;
+}
+.page-portrait .load-page .img-load-now span {
+  font-size: 0.29333333rem;
+  color: #000;
+}
+.page-portrait .load-page .img-load-now .readyGo {
+  display: none;
+  width: 2.44rem;
+  height: 1.02666667rem;
+  text-align: center;
+}
+.page-portrait .load-page .img-load-now .readyGo img {
+  width: 2.12rem;
+  height: 1.02666667rem;
+  -webkit-animation: goTada 2s ease infinite ;
+  animation: goTada 2s ease infinite ;
+}
+.page-portrait .page-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page-portrait .page-container .poster-main {
   width: 100%;
   height: 2.66666667rem;
   position: absolute;
   left: 0;
   top: 6rem;
 }
-.poster-main ul {
-  width: 18.66666667rem;
+.page-portrait .page-container .poster-main ul {
+  width: 20rem;
   height: 1.6rem;
   font-size: 0;
   animation: carousel 2s linear infinite;
   position: relative;
 }
-.poster-main ul li {
+.page-portrait .page-container .poster-main ul li {
   box-sizing: border-box;
   width: 2rem;
   height: 1.6rem;
@@ -182,34 +296,59 @@ body {
   left: 0;
   top: 0;
 }
-.poster-main ul li.active {
+.page-portrait .page-container .poster-main ul li.active {
   transition: all ease-in 0.2s 0.2s;
   transform: scale(1.5);
   top: -0.26666667rem;
 }
-.zhua {
+.page-portrait .page-container .poster-main ul li.img-active {
+  animation: img-slideOutUp 0.6s 1s ease-in forwards;
+}
+.page-portrait .page-container .zhua {
   width: 0.85333333rem;
   height: 6.36rem;
   position: absolute;
   left: 4.57333333rem;
-  top: -4rem;
+  top: -2.66666667rem;
 }
-.zhua img {
+.page-portrait .page-container .zhua img {
   width: 100%;
   height: 100%;
 }
-.zhuadown {
-  animation: zhuamove 0.2s ease-in forwards;
+.page-portrait .page-container .zhuadown {
+  animation: zhuadown 1s ease-in forwards;
 }
-@keyframes zhuamove {
+.page-portrait .page-container .zhuaup {
+  animation: zhua-slideOutUp 0.6s 0s ease-in forwards;
+}
+@keyframes zhuadown {
   0% {
-    top: -4rem;
+    top: -2.66666667rem;
+  }
+  50% {
+    top: 0rem;
   }
   100% {
     top: 0rem;
   }
 }
-.playbtn {
+@keyframes zhua-slideOutUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -8rem;
+  }
+}
+@keyframes img-slideOutUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -8rem;
+  }
+}
+.page-portrait .page-container .playbtn {
   width: 100%;
   height: 0.4rem;
   position: absolute;
@@ -217,37 +356,78 @@ body {
   top: 8rem;
   text-align: center;
 }
-.result {
+.page-portrait .page-container .answer-box {
   width: 100%;
-  height: 0.53333333rem;
+  height: 100%;
   position: absolute;
   left: 0;
-  top: 1.33333333rem;
-  display: none;
+  top: -100%;
 }
-.result p {
-  display: none;
-}
-.answer {
+.page-portrait .page-container .answer-box img {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
   top: 0;
-  display: none;
 }
-.answer img {
-  width: 100%;
-  height: 100%;
+.page-portrait .page-container .answer-box p {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.42666667rem;
 }
-.answer button {
+.page-portrait .page-container .answer-box button {
   position: absolute;
   left: 2.66666667rem;
   bottom: 1.33333333rem;
 }
-#choosed {
+.page-portrait .page-container .answer-box-show {
+  animation: slideInDown 0.5s 1.8s ease-out forwards;
+}
+.page-portrait .page-container .again-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding-top: 2.66666667rem;
   display: none;
 }
-#again {
-  display: none;
+@keyframes goTada {
+  0% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+  10%,
+  20% {
+    -webkit-transform: scale3d(0.95, 0.95, 0.95) rotate3d(0, 0, 1, -2deg);
+    transform: scale3d(0.95, 0.95, 0.95) rotate3d(0, 0, 1, -2deg);
+  }
+  30%,
+  50%,
+  70%,
+  90% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 2deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 2deg);
+  }
+  40%,
+  60%,
+  80% {
+    -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -2deg);
+    transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -2deg);
+  }
+  100% {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes slideInDown {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0;
+  }
 }

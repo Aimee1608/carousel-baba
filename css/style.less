@@ -66,110 +66,283 @@ input[type="text"], input[type="button"], input[type="submit"], input[type="sear
 html, body { position: relative;color:#333;}
 
 
-.poster-main{
-  width:100%;
-  height:200/75rem;
-  //overflow: hidden;
-  position: absolute;
-  left:0;
-  top:450/75rem;
-  ul{
-    width:1400/75rem;
-    height:120/75rem;
-    font-size: 0;
-    animation:carousel 2s linear infinite;
-    position: relative;
-    li{
-      box-sizing: border-box;
-      //padding:0 40/75rem;
-      width:150/75rem;
-      height:120/75rem;
-      //display: inline-block;
-      position: absolute;
-      left:0;
-      top:0;
-      //transition:left linear 2s;
-    }
-    li.active{
-      transition: all ease-in 0.2s 0.2s;
-      transform:scale(1.5);
-      top:-20/75rem;
-    }
+/**“Ù¿÷≤•∑≈**/
+.btn-music{width: 66/75rem; height: 66/75rem;background:rgba(0,0,0,0.3);border-radius:50%;position: fixed; top:36/75rem; right: 36/75rem;}
+//.open-music{animation: music-btn 3s linear infinite; -webkit-animation: music-btn 3s linear infinite;}
+.music{width:100%; height: 100%;}
+@-webkit-keyframes music-btn{
+  form{
+    -webkit-transform: rotateZ(0deg);
+    transform:rotateZ(0deg);
+  }
+  to{
+    -webkit-transform: rotateZ(360deg);
+    transform:rotateZ(360deg);
   }
 }
-.zhua{
-  width:64/75rem;
-  height:477/75rem;
-  position: absolute;
-  left:343/75rem;
-  top:-300/75rem;
-  img{
-    width:100%;
-    height:100%;
+@keyframes music-btn{
+  form{
+    -webkit-transform: rotateZ(0deg);
+    transform:rotateZ(0deg);
+  }
+  to{
+    -webkit-transform: rotateZ(360deg);
+    transform:rotateZ(360deg);
   }
 }
-.zhuadown{
-  animation: zhuamove 0.2s ease-in forwards;
-}
-@keyframes zhuamove {
-  0%{
-    top:-300/75rem;
-  }
-  100%{
-    top:0/75rem;
-  }
-}
-
-
-.playbtn{
-  width:100%;
-  height:30/75rem;
-  position: absolute;
-  left:0;
-  top:600/75rem;
-  text-align: center;
-}
-
-.result{
-  width:100%;
-  height:40/75rem;
-  position: absolute;
-  left:0;
-  top:100/75rem;
-  display:none;
-  p{
-    display:none;
-  }
-}
-.answer{
-  width:100%;
-  height:100%;
+//∫·∆¡
+.page-landscape{
+  display:block;
   position: absolute;
   left:0;
   top:0;
-  display: none;
-  img{
+  width:100%;
+  height:100%;
+  background: #fff;
+  h3{
+    text-align: center;
+    margin: 0 auto;
+    font-size: 28/75rem;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+  }
+}
+
+// ˙∆¡
+.page-portrait{
+  display:block;
+  position: relative;
+  width:100%;
+  overflow-x:hidden ;
+  -webkit-overflow-x:hidden ;
+  overflow-y:scroll;
+  -webkit-overflow-y:scroll ;
+  //height:100%;
+  //loading
+  .load-page{
     width:100%;
     height:100%;
+    position: fixed;
+    left:0;
+    top:0;
+    z-index: 999;
+    background-color:#fff;
+    .img-load-now{
+      width:183/75rem;
+      height:300/75rem;
+      position: absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+      -webkit-transform: translate(-50%,-50%);
+      text-align: center;
+      .loading{
+        //background-image:url(../img/aiyinsitan.gif);
+        background-size: 183/75rem 189/75rem;
+        width:183/75rem;
+        height:189/75rem;
+      }
+      .mask{
+        width: 100%;
+        height:50/75rem;
+        text-align: center;
+
+      }
+      span{
+        font-size: 22/75rem;
+        color: #000;
+      }
+      .readyGo{
+        display: none;
+        text-align: center;
+        width:183/75rem;
+        height:77/75rem;
+        text-align: center;
+        img{
+          width:159/75rem;
+          height:77/75rem;
+          -webkit-animation:goTada 2s ease infinite ;
+          animation:goTada 2s ease infinite ;
+        }
+      }
+    }
+  }
+  .page-container{
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    .poster-main{
+      width:100%;
+      height:200/75rem;
+      //overflow: hidden;
+      position: absolute;
+      left:0;
+      top:450/75rem;
+      ul{
+        width:1500/75rem;
+        height:120/75rem;
+        font-size: 0;
+        animation:carousel 2s linear infinite;
+        position: relative;
+        li{
+          box-sizing: border-box;
+          //padding:0 40/75rem;
+          width:150/75rem;
+          height:120/75rem;
+          //display: inline-block;
+          position: absolute;
+          left:0;
+          top:0;
+          //transition:left linear 2s;
+        }
+        li.active{
+          transition: all ease-in 0.2s 0.2s;
+          transform:scale(1.5);
+          top:-20/75rem;
+        }
+        li.img-active{
+          animation: img-slideOutUp 0.6s 1s ease-in forwards;
+        }
+      }
+    }
+    .zhua{
+      width:64/75rem;
+      height:477/75rem;
+      position: absolute;
+      left:343/75rem;
+      top:-200/75rem;
+      img{
+        width:100%;
+        height:100%;
+      }
+    }
+    .zhuadown{
+      animation: zhuadown 1s ease-in forwards;
+    }
+    .zhuaup{
+      animation: zhua-slideOutUp 0.6s 0s ease-in forwards;
+    }
+    @keyframes zhuadown {
+      0%{
+        top:-200/75rem;
+      }
+      50%{
+        top:0/75rem;
+      }
+      100%{
+        top:0/75rem;
+      }
+    }
+    @keyframes zhua-slideOutUp {
+      0%{
+        top:0;
+      }
+      100%{
+        top:-600/75rem;
+      }
+    }
+    @keyframes img-slideOutUp {
+      0%{
+        top:0;
+      }
+      100%{
+        top:-600/75rem;
+      }
+    }
+    .playbtn{
+      width:100%;
+      height:30/75rem;
+      position: absolute;
+      left:0;
+      top:600/75rem;
+      text-align: center;
+    }
+
+    .answer-box{
+      width:100%;
+      height:100%;
+      position: absolute;
+      left:0;
+      top:-100%;
+      //display: none;
+      img{
+        width:100%;
+        height:100%;
+        position: absolute;
+        left:0;
+        top:0;
+      }
+      p{
+        position: absolute;
+        left:0;
+        top:0;
+        font-size: 32/75rem;
+      }
+      button{
+        position: absolute;
+        left:200/75rem;
+        bottom:100/75rem;
+      }
+    }
+    .answer-box-show{
+      animation: slideInDown 0.5s 1.8s ease-out forwards;
+    }
+    .again-box{
+      width:100%;
+      height:100%;
+      position: absolute;
+      left:0;
+      top:0;
+      background:rgba(0,0,0,0.7);
+      text-align: center;
+      padding-top:200/75rem;
+      display: none;
+    }
 
   }
-  button{
-    position: absolute;
-    left:200/75rem;
-    bottom:100/75rem;
+  @keyframes goTada {//loadingø™ º–°Õº±Í
+    0% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+
+    10%, 20% {
+      -webkit-transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -2deg);
+      transform: scale3d(.95, .95, .95) rotate3d(0, 0, 1, -2deg);
+    }
+
+    30%, 50%, 70%, 90% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 2deg);
+      transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 2deg);
+    }
+
+    40%, 60%, 80% {
+      -webkit-transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -2deg);
+      transform: scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -2deg);
+    }
+
+    100% {
+      -webkit-transform: scale3d(1, 1, 1);
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  @keyframes slideInDown {
+    0%{
+      top:-100%;
+    }
+    100%{
+      top:0
+    }
   }
 }
-#choosed{
-  display: none;
-}
-#again{
-  display:none;
-}
-//@keyframes carousel {
-//  0%{
-//    transform: translateX(200/75rem);
-//  }
-//  100%{
-//    transform: translateX(-1000/75rem);
-//  }
-//}
+
+
+
+
+
+

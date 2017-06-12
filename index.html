@@ -11,36 +11,60 @@
     <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-<div class="zhua">
-    <img src="img/capit-sheet1.png" alt=""/>
+<!--横屏-->
+<div id="page-landscape" class="page-landscape">
+    <h3>竖屏体验更佳！</h3>
 </div>
-<div class="result">
-    <p class="catched">wowo!!!cool</p>
-    <p class="nocatched">没抓到哦!</p>
+<!--竖屏-->
+<div class="page-portrait" id="page-portrait">
+    <div class="load-page" id="loadingPage">
+        <div class="img-load-now">
+            <!--加载动画-->
+            <div class="loading"></div>
+            <div class="mask" id="img-loading-txt"></div>
+            <div class="readyGo" id="readyGo"><img src="img/anniu.png" alt=""/></div>
+        </div>
+    </div>
+    <div  id="pageContainer" class="page-container">
+        <div class="zhua">
+            <img src="img/capit-sheet1.png" alt=""/>
+        </div>
+        <div class="poster-main B_Demo" >
+            <ul class="poster-list">
+                <li class="poster-item" data-item = 0><a href="#"><img src="img/1.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 1><a href="#"><img src="img/2.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 2><a href="#"><img src="img/3.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 3><a href="#"><img src="img/4.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 4><a href="#"><img src="img/5.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 5><a href="#"><img src="img/6.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 6><a href="#"><img src="img/7.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 7><a href="#"><img src="img/8.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 8><a href="#"><img src="img/9.jpg" width="100%" ></a></li>
+                <li class="poster-item" data-item = 9><a href="#"><img src="img/10.jpg" width="100%" ></a></li>
+            </ul>
+        </div>
+        <div class="playbtn">
+            <button id="stop">抓取</button>
+        </div>
+        <div class="again-box">
+            <p >没抓到哦!</p>
+            <button id="again">再来</button>
+        </div>
+        <div class="answer-box" id="answer-box">
+            <img src="" alt=""/>
+            <p>恭喜你！</p>
+            <button id="start">再来一次</button>
+        </div>
+        <!--音乐-->
+        <div class="btn-music open-music">
+            <img src="img/music-open.png" class="open music" style="display: block;"/>
+            <img src="img/music-close.png" class="clock music" style="display: none;"/>
+        </div>
+    </div>
 </div>
-<div class="poster-main B_Demo" >
-    <ul class="poster-list">
-        <li class="poster-item" data-item = 0><a href="#"><img src="img/1.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 1><a href="#"><img src="img/2.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 2><a href="#"><img src="img/3.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 3><a href="#"><img src="img/4.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 4><a href="#"><img src="img/5.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 5><a href="#"><img src="img/6.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 6><a href="#"><img src="img/7.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 7><a href="#"><img src="img/8.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 8><a href="#"><img src="img/9.jpg" width="100%" ></a></li>
-        <li class="poster-item" data-item = 9><a href="#"><img src="img/10.jpg" width="100%" ></a></li>
-    </ul>
-</div>
-<div class="playbtn">
-    <button id="stop">抓取</button> <button id="choosed">就这个爸爸</button><button id="again">再来</button>
-</div>
-<div class="answer" id="answer">
-    <img src="" alt=""/>
-    <button id="start">再来一次</button>
-</div>
+<audio src="video/bgMusic.mp3" id="musicStar"  loop="loop" preload="auto" ></audio>
 </body>
 <script src="js/jquery-1.8.3.min.js"></script>
-<script src="js/init.js"></script>
 <script src="js/carousel.js"></script>
+<script src="js/style.js"></script>
 </html>
