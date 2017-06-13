@@ -276,22 +276,22 @@ body {
 }
 .page-portrait .page-container .poster-main {
   width: 100%;
-  height: 2.66666667rem;
+  height: 8.85333333rem;
   position: absolute;
   left: 0;
-  top: 6rem;
+  top: 4rem;
 }
 .page-portrait .page-container .poster-main ul {
   width: 20rem;
-  height: 1.6rem;
+  height: 8.85333333rem;
   font-size: 0;
   animation: carousel 2s linear infinite;
   position: relative;
 }
 .page-portrait .page-container .poster-main ul li {
   box-sizing: border-box;
-  width: 2rem;
-  height: 1.6rem;
+  width: 3.73333333rem;
+  height: 8.85333333rem;
   position: absolute;
   left: 0;
   top: 0;
@@ -304,16 +304,33 @@ body {
 .page-portrait .page-container .poster-main ul li.img-active {
   animation: img-slideOutUp 0.6s 1s ease-in forwards;
 }
-.page-portrait .page-container .zhua {
-  width: 0.85333333rem;
-  height: 6.36rem;
+.page-portrait .page-container .text {
+  width: 3.10666667rem;
+  height: 1.56rem;
   position: absolute;
-  left: 4.57333333rem;
-  top: -2.66666667rem;
+  bottom: 0;
+  left: 0.28666667rem;
 }
-.page-portrait .page-container .zhua img {
-  width: 100%;
-  height: 100%;
+.page-portrait .page-container .people {
+  width: 3.73333333rem;
+  height: 5.33333333rem;
+  position: absolute;
+  top: 2.26666667rem;
+  left: 0;
+}
+.page-portrait .page-container .name {
+  width: 1.18666667rem;
+  height: 2.22666667rem;
+  position: absolute;
+  top: 0;
+  left: 1.27333333rem;
+}
+.page-portrait .page-container .zhua {
+  width: 1.8rem;
+  height: 7.54666667rem;
+  position: absolute;
+  left: 4.1rem;
+  top: -2.4rem;
 }
 .page-portrait .page-container .zhuadown {
   animation: zhuadown 1s ease-in forwards;
@@ -347,14 +364,6 @@ body {
   100% {
     top: -8rem;
   }
-}
-.page-portrait .page-container .playbtn {
-  width: 100%;
-  height: 0.4rem;
-  position: absolute;
-  left: 0;
-  top: 8rem;
-  text-align: center;
 }
 .page-portrait .page-container .answer-box {
   width: 100%;
@@ -430,4 +439,53 @@ body {
   100% {
     top: 0;
   }
+}
+.page-portrait .background-down {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page-portrait .background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page-portrait .background-up {
+  width: 100%;
+  height: 1.64rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.page-portrait .button {
+  width: 7.16rem;
+  height: 1.92rem;
+  position: absolute;
+  left: 1.42rem;
+  bottom: 0.78666667rem;
+}
+.page-portrait .deng01 {
+  width: 3.85333333rem;
+  height: 5.88rem;
+  position: absolute;
+  left: 0.82666667rem;
+  top: 0.61333333rem;
+}
+.page-portrait .deng02 {
+  width: 3.82666667rem;
+  height: 5.82666667rem;
+  position: absolute;
+  right: 0.89333333rem;
+  top: 0.66666667rem;
+}
+.page-portrait .dai {
+  width: 10rem;
+  height: 1.30666667rem;
+  position: absolute;
+  left: 0;
+  top: 12.8rem;
 }
