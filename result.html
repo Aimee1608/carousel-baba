@@ -2,44 +2,142 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>结果页</title>
+    <title>爸爸，快来看人家这个爸爸！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,shrink-to-fit=no">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?fdf0d2736b81bcae38aee0a100352a30";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|SymbianOS)/i) == null){
+            window.location.href = 'index.html';
+        }
+    </script>
+    <style>
+        body{
+            position: relative;
+            width:10rem;
+            margin:0;
+            padding: 0;
+        }
+        #result{
+            width:100%;
+            height:100%;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        #result img{
+            width:100%;
+            height:100%;
+            position: absolute;
+            left:0;
+            top:0;
+        }
+        .shareImg{
+            width: 4rem;
+            height:4rem;
+            position: absolute;
+            left:0;
+            top:0;
+            opacity: 0;
+        }
+    </style>
 </head>
 <body>
-<h1>结果展示页</h1>
-<h3></h3>
-<button>我也要玩</button>
+<img class="shareImg" src="img/share.jpg" alt=""/>
+<div id="result">
+    <img  src="" alt=""/>
+</div>
 </body>
 <script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/init.js"></script>
 <script>
-    $(function(){
-        //进来详情页面 有两种情况 1.用户已经授权，直接跳转到这个页面 展示用户信息 2.用户通过好友妆发进来，通过授权自己获取到用户信息展示
-        //所以 unionid 为 用户自己授权openid   openid 为好友openid
-        //先判断用户unionid 是否为空 否则进行授权 或者就是展示好友信息
-        var unionid = GetQueryString("unionid");
-        var openid = GetQueryString("openid");
-        var result= GetQueryString("result");
-        $('h3').html('结果是'+result);
-        if(unionid == null)
-        {
-            window.location.href="http://flow.xingyuanauto.com/201706/FathertTes/code.php?openid="+openid;
+    var text=['黄磊','摔跤吧爸爸','王健林','小狄爸爸','甲方爸爸','贝克汉姆','赵本山','勇度','奥特之父','牛魔王'];
+    var openid = GetQueryString('shareID');
+    var shareText = null;
+    var fatherID = GetQueryString('fatherID');
+    if(openid){
+        if(fatherID){
+            fatherID = parseInt(fatherID);
+            var fatherimg = new Image();
+            fatherimg.src = 'img/result/result0'+(fatherID+1)+'.png';
+            fatherimg.onload = function(){
+                $.ajax({
+                    type:'get',
+                    url:'https://h5php.xingyuanauto.com/portframe/public/index.php/active/Wechadfather/UserMessageMess',
+                    data:{openid:openid},
+                    dataType:'json',
+                    success:function(msg){
+                        var w = window.innerWidth;
+                        var h = window.innerHeight;
+                        $('body').css({'width':w,'height':h});
+                        if(msg.code==1001){
+                            shareText = msg.data.father_name;
+                            var headimg = new Image();
+                            headimg.crossOrigin = "*";
+                            headimg.src = msg.data.img_url;
+                            headimg.onload = function(){
+                                var canvas =  document.createElement('canvas');//画布
+                                var ctx = canvas.getContext("2d");
+                                var ratio = getPixelRatio(ctx);
+                                canvas.width =w*ratio;
+                                canvas.height=h*ratio;
+                                ctx.clearRect(0,0,canvas.width,canvas.height);
+                                ctx.fillStyle = '#000000';
+                                ctx.fillRect(0,0,canvas.width, canvas.height);
+                                //画头像
+                                ctx.drawImage(headimg,0,0,headimg.width,headimg.height,138/750*w*ratio,645/1206*h* ratio,68* ratio,68* ratio);
+                                //画结果图
+                                ctx.drawImage(fatherimg,0,0,750,1206,0,0,canvas.width, canvas.height);
+                                //img 数据，可传给后台数据库
+                                var imgData = canvas.toDataURL();
+                                $('#result img').attr('src',imgData);
+                            }
+                        }else{
+                            alert(msg);
+                        }
+                    }
+                })
+            }
+        }else{
+            alert('nofather');
+            window.location.href = 'index.html';
         }
-        else
-        {
-            var url = window.document.location.href;
-            alert(url);
-        }
+    }else{
+        window.location.href = 'index.html';
+    }
 
-        /**
-         * 获取当前URL参数
-         * @param [type] name [参数键名称]
-         * @return [type] [参数值]
-         */
-        function GetQueryString(name)
-        {
-            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-            var r = window.location.search.substr(1).match(reg);
-            if(r!=null)return  unescape(r[2]); return null;
-        }
-    })
+    /**
+     * 获取当前URL参数
+     * @param [type] name [参数键名称]
+     * @return [type] [参数值]
+     */
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
+    var getPixelRatio = function(context) {
+        var backingStore = context.backingStorePixelRatio ||
+                context.webkitBackingStorePixelRatio ||
+                context.mozBackingStorePixelRatio ||
+                context.msBackingStorePixelRatio ||
+                context.oBackingStorePixelRatio ||
+                context.backingStorePixelRatio || 1;
+        return (window.devicePixelRatio || 1) / backingStore;
+    };
 </script>
+<script src="https://h5php.xingyuanauto.com/weixin_serve/jssdk/js/jweixin-1.0.0.js"></script>
+<script src="js/wx_share_result.js"></script>
 </html>

@@ -1,23 +1,11 @@
 //init.js
-
-//var mpenshui = document.getElementById('mpenshui');
-//var mshiguan = document.getElementById('mshiguan');
-//var mjiguanqiang = document.getElementById('mjiguanqiang');
-//var mfenglangsheng = document.getElementById('mfenglangsheng');
-//var mmiaobiao = document.getElementById('mmiaobiao');
-//var myunsankai = document.getElementById('myunsankai');
-//var mdeyu = document.getElementById('mdeyu');
-//var mxishui = document.getElementById('mxishui');
-//var mfang = document.getElementById('mfang');
-//var mriyu = document.getElementById('mriyu');
-
-var musicArray = ['mpenshui','mshiguan','mjiguanqiang','mfenglangsheng','mmiaobiao','myunsankai','mdeyu','mxishui','mfang','mriyu'];
-function initMusic(musicIDArray){
-    if(musicIDArray.length>0){
-        for(var i=0;i<musicIDArray.length;i++){
-            var player =document.getElementById(musicIDArray[i]);
-            player.load();
-        }
+var error = document.getElementById('error');
+var musicArray =[];
+function initMusic(){
+    for(var i=0;i<10;i++){
+        var music = document.getElementById('music0'+(i+1));
+        musicArray.push(music);
+        music.load();
     }
 }
 function ImgLoadingByFile(imgArray,loadPageID,loadTxtID,readyID,musicID,showpageID){
@@ -25,14 +13,20 @@ function ImgLoadingByFile(imgArray,loadPageID,loadTxtID,readyID,musicID,showpage
         $('#'+loadTxtID).html('100%');
         $('#'+loadTxtID).hide();
         $('#'+readyID).show();
-        $('#'+loadPageID).unbind('click').bind('click',function(){
+        $('#'+loadPageID).one('click',function(){
             var timer = setTimeout(function(){
-                $('#'+loadPageID).fadeOut(800);
-                $('#'+showpageID).show();
-                Carousel.init();
-                //initMusic(musicArray);
+                $('.scaleOut').addClass('load-hide');
+                $('#'+loadPageID).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                    $('#'+loadPageID).hide();
+                    $('#'+showpageID).show();
+                    Carousel.init();
+
+                });
+
+                initMusic();
                 var player = document.getElementById(musicID);
                 player.load();
+                error.load();
                 player.play();
                 clearTimeout(timer);
             },500);
@@ -53,22 +47,25 @@ function ImgLoadingByFile(imgArray,loadPageID,loadTxtID,readyID,musicID,showpage
                     if(percent>=100){
                       $('#'+loadTxtID).hide();
                         $('#'+readyID).show();
-                        $('#'+loadPageID).unbind('click').bind('click',function(){
+                        $('#'+loadPageID).one('click',function(){
                             var timer = setTimeout(function(){
-                                //initMusic(musicArray);
+                                initMusic();
                                 var player = document.getElementById(musicID);
                                 player.play();
+                                error.load();
                                 if(player.paused){
                                     player.play();
                                 }
-                                $('#'+loadPageID).fadeOut(800);
-                                $('#'+showpageID).show();
-                                Carousel.init();
+                                $('.scaleOut').addClass('load-hide');
+                                $('#'+loadPageID).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                                    $('#'+loadPageID).hide();
+                                    $('#'+showpageID).show();
+                                    Carousel.init();
+                                });
                                 clearTimeout(timer);
                             },500);
                         });
                         sessionStorage.setItem("pageloaded", "true");
-
                     }
                 }
             }
@@ -149,39 +146,108 @@ function portrait02(){
     var h = window.Utils.windowH();
     $("body").css({"width":w,"height":h});
     $('#page-portrait').css({"width":w,"height":h});
+    $('#pageContainer').css({"width":w,"height":h});
     //$('.load-page').css({"width":w,"height":h});
     $('#page-landscape').hide();
     $('#page-portrait').show();
+    $('.start').css({'left':113/750*w+'px','top':1068/1206*h+'px'});
     //初始化加载
     if(firstInit){
         var imgFile = [
+            './img/people/people01.gif',
+            './img/people/people02.gif',
+            './img/people/people03.gif',
+            './img/people/people04.gif',
+            './img/people/people05.gif',
+            './img/people/people06.gif',
+            './img/people/people07.gif',
+            './img/people/people08.gif',
+            './img/people/people09.gif',
+            './img/people/people010.gif',
+            './img/people/name01.png',
+            './img/people/name02.png',
+            './img/people/name03.png',
+            './img/people/name04.png',
+            './img/people/name05.png',
+            './img/people/name06.png',
+            './img/people/name07.png',
+            './img/people/name08.png',
+            './img/people/name09.png',
+            './img/people/name10.png',
+            './img/people/text01.png',
+            './img/people/text02.png',
+            './img/people/text03.png',
+            './img/people/text04.png',
+            './img/people/text05.png',
+            './img/people/text06.png',
+            './img/people/text07.png',
+            './img/people/text08.png',
+            './img/people/text09.png',
+            './img/people/text10.png',
+            './img/result/result01.png',
+            './img/result/result02.png',
+            './img/result/result03.png',
+            './img/result/result04.png',
+            './img/result/result05.png',
+            './img/result/result06.png',
+            './img/result/result07.png',
+            './img/result/result08.png',
+            './img/result/result09.png',
+            './img/result/result010.png',
+            './img/juchi/juchi0001.jpg',
+            './img/juchi/juchi0002.jpg',
+            './img/juchi/juchi0003.jpg',
+            './img/juchi/juchi0004.jpg',
+            './img/juchi/juchi0005.jpg',
+            './img/juchi/juchi0006.jpg',
+            './img/juchi/juchi0007.jpg',
+            './img/juchi/juchi0008.jpg',
+            './img/zhua/zhua0001.png',
+            './img/zhua/zhua0002.png',
+            './img/zhua/zhua0003.png',
+            './img/zhua/zhua0004.png',
+            './img/zhua/zhua0005.png',
+            './img/zhua/zhua0006.png',
+            './img/zhua/zhua0007.png',
+            './img/zhua/zhua0008.png',
+            './img/again.png',
+            './img/alert.png',
+            './img/background.png',
+            './img/background-down.png',
+            './img/background-up.png',
+            './img/button.png',
+            './img/deng01.png',
+            './img/deng02.png',
+            './img/go.png',
+            './img/head.jpg',
+            './img/jinbi.gif',
+            './img/lagan.gif',
+            './img/loading.png',
+            './img/long-up.png',
             './img/music-close.png',
             './img/music-open.png',
-            './img/1.jpg',
-            './img/2.jpg',
-            './img/3.jpg',
-            './img/4.jpg',
-            './img/5.jpg',
-            './img/6.jpg',
-            './img/7.jpg',
-            './img/8.jpg',
-            './img/9.jpg',
-            './img/10.jpg'
+            './img/write-grow.png',
+            './img/write-shan.png',
+            './img/yellow-grow.png',
+            './img/yellow-shan.png',
+            './img/share.jpg'
 
         ];
         ImgLoadingByFile(imgFile,'loadingPage','img-loading-txt','readyGo','musicStar','pageContainer');
         firstInit = false;
-
     }
+
     //音乐
     $(".open").click(function(){
         musicStar.pause();
         $(this).css("display","none");
+        $(this).removeClass('show');
         $(".clock").css("display","block");
     });
     $(".clock").click(function(){
         musicStar.play();
         $(this).css("display","none");
+        $(".open").addClass('show');
         $(".open").css("display","block");
     });
 
@@ -291,7 +357,7 @@ function  onResize() {
                 portrait02();
 
                 clearTimeout(timer);
-            },100);
+            },200);
         }else{
             portrait02();
         }
@@ -300,7 +366,7 @@ function  onResize() {
             var timer = setTimeout(function(){
                 landscape();
                 clearTimeout(timer);
-            },100);
+            },200);
         }else{
             landscape();
         }

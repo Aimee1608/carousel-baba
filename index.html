@@ -2,13 +2,24 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>抓娃娃</title>
+    <title>爸爸，快来看人家这个爸爸！</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,shrink-to-fit=no">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="black" name="apple-mobile-web-app-status-bar-style">
     <meta content="telephone=no" name="format-detection">
     <meta name="msapplication-tap-highlight" content="no">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/weicat.js"></script>
     <link rel="stylesheet" href="css/style.css"/>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?fdf0d2736b81bcae38aee0a100352a30";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
 <!--横屏-->
@@ -18,96 +29,130 @@
 <!--竖屏-->
 <div class="page-portrait" id="page-portrait">
     <div class="load-page" id="loadingPage">
-        <div class="img-load-now">
-            <!--加载动画-->
-            <div class="loading"></div>
+        <!--加载动画-->
+        <div class="scaleOut">
+            <img class="load-bg" src="img/loading.png" alt=""/>
+            <img class="lagan" src="img/lagan.gif" alt=""/>
+            <img class="jinbi" src="img/jinbi.gif" alt=""/>
             <div class="mask" id="img-loading-txt"></div>
-            <div class="readyGo" id="readyGo"><img src="img/anniu.png" alt=""/></div>
+            <img class="readyGo" id="readyGo" src="img/go.png" alt=""/>
         </div>
     </div>
+    <!--里面内容-->
     <div  id="pageContainer" class="page-container">
+        <!--最底层背景-->
         <img class="background-down" src="img/background-down.png" alt=""/>
-        <div class="poster-main B_Demo" >
+        <div class="yellow guang">
+            <img src="img/yellow-grow.png" class="yellow-grow grow"/>
+            <img src="img/yellow-shan.png" class="yellow-shan shan"/>
+        </div>
+        <div class="write guang">
+            <img src="img/write-grow.png" class="write-grow grow"/>
+            <img src="img/write-shan.png" class="write-shan shan"/>
+        </div>
+        <!--轮播-->
+        <div class="poster-main" >
             <ul class="poster-list">
                 <li class="poster-item" data-item = 0>
                     <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
                     <img class="name" src="img/people/name01.png"  />
+                    <img class="people01 people" src="img/people/people01.gif" />
                 </li>
                 <li class="poster-item" data-item = 1>
                     <img class="text" src="img/people/text02.png"  />
-                    <img class="people" src="img/people/jiaofu.png" />
                     <img class="name" src="img/people/name02.png"  />
+                    <img class="people02 people" src="img/people/people02.gif" />
                 </li>
                 <li class="poster-item" data-item = 2>
                     <img class="text" src="img/people/text03.png"  />
-                    <img class="people" src="img/people/aoteman.png" />
                     <img class="name" src="img/people/name03.png"  />
+                    <img class="people03 people" src="img/people/people03.gif" />
                 </li>
                 <li class="poster-item" data-item = 3>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text04.png"  />
+                    <img class="name" src="img/people/name04.png"  />
+                    <img class="people04 people" src="img/people/people04.gif" />
                 </li>
                 <li class="poster-item" data-item = 4>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text05.png"  />
+                    <img class="name" src="img/people/name05.png"  />
+                    <img class="people05 people" src="img/people/people05.gif" />
                 </li>
                 <li class="poster-item" data-item = 5>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text06.png"  />
+                    <img class="name" src="img/people/name06.png"  />
+                    <img class="people06 people" src="img/people/people06.gif" />
                 </li>
                 <li class="poster-item" data-item = 6>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text07.png"  />
+                    <img class="name" src="img/people/name07.png"  />
+                    <img class="people07 people" src="img/people/people07.gif" />
                 </li>
                 <li class="poster-item" data-item = 7>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text08.png"  />
+                    <img class="name" src="img/people/name08.png"  />
+                    <img class="people08 people" src="img/people/people08.gif" />
                 </li>
                 <li class="poster-item" data-item = 8>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text09.png"  />
+                    <img class="name" src="img/people/name09.png"  />
+                    <img class="people09 people" src="img/people/people09.gif" />
                 </li>
                 <li class="poster-item" data-item = 9>
-                    <img class="text" src="img/people/text01.png"  />
-                    <img class="people" src="img/people/benshan.png" />
-                    <img class="name" src="img/people/name01.png"  />
+                    <img class="text" src="img/people/text10.png"  />
+                    <img class="name" src="img/people/name10.png"  />
+                    <img class="people010 people" src="img/people/people010.gif" />
                 </li>
             </ul>
         </div>
-        <div class="again-box">
-            <p >没抓到哦!</p>
-            <button id="again">再来</button>
-        </div>
-
-        <img class="dai" src="img/dai.png" alt=""/>
+        <!--传送带-->
+        <div class="dai daimove"></div>
         <img class="background" src="img/background.png" alt=""/>
-        <img  id="stop" class="button" src="img/button.png" alt=""/>
-        <img class="zhua" src="img/zhua.png" alt=""/>
+        <!--抓爸爸按钮-->
+        <img  id="stop" class="button buttonmove" src="img/button.png" alt=""/>
+        <!--抓钩-->
+        <div class="zhua zhuamove" ></div>
         <img class="background-up" src="img/background-up.png" alt=""/>
+        <!--两侧灯-->
         <img class="deng01" src="img/deng01.png" alt=""/>
         <img class="deng02" src="img/deng02.png" alt=""/>
         <!--音乐-->
         <div class="btn-music open-music">
-            <img src="img/music-open.png" class="open music" style="display: block;"/>
+            <img src="img/music-open.png" class="open music show" style="display: block;"/>
             <img src="img/music-close.png" class="clock music" style="display: none;"/>
         </div>
+        <!--失败弹层-->
+        <div id="again-box" class="again-box">
+            <img class="alert" src="img/alert.png" alt=""/>
+        </div>
+        <!--抓中弹层-->
         <div class="answer-box" id="answer-box">
-            <img src="" alt=""/>
-            <p>恭喜你！</p>
-            <button id="start">再来一次</button>
+            <img class="resultImg" src="" alt=""/>
+            <img class="long-up" src="img/long-up.png" alt=""/>
+            <img id="start" class="start" src="img/again.png" alt=""/>
         </div>
     </div>
 </div>
+<!--背景音乐-->
 <audio src="video/bgMusic.mp3" id="musicStar"  loop="loop" preload="auto" ></audio>
+<!--配乐-->
+<audio src="video/error.mp3" id="error" preload="auto"></audio>
+<audio src="video/music01.mp3" id="music01"   preload="auto" ></audio>
+<audio src="video/music02.mp3" id="music02"  preload="auto" ></audio>
+<audio src="video/music03.mp3" id="music03"   preload="auto" ></audio>
+<audio src="video/music04.mp3" id="music04"   preload="auto" ></audio>
+<audio src="video/music05.mp3" id="music05"   preload="auto" ></audio>
+<audio src="video/music06.mp3" id="music06"   preload="auto" ></audio>
+<audio src="video/music07.mp3" id="music07"   preload="auto" ></audio>
+<audio src="video/music08.mp3" id="music08"   preload="auto" ></audio>
+<audio src="video/music09.mp3" id="music09"   preload="auto" ></audio>
+<audio src="video/music10.mp3" id="music010"   preload="auto" ></audio>
 </body>
-<script src="js/jquery-1.8.3.min.js"></script>
+<!-- 微信分享 Start -->
+<script src="https://h5php.xingyuanauto.com/weixin_serve/jssdk/js/jweixin-1.0.0.js"></script>
+<script src="js/wx_share.js"></script>
+<!-- 微信分享 End -->
 <script src="js/carousel.js"></script>
 <script src="js/style.js"></script>
+
 </html>

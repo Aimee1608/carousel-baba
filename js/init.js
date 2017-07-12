@@ -1,7 +1,6 @@
 /**
- * Created by jiangqian on 2017/6/5.
+ * Created by jiangqian on 2017/6/15.
  */
-/******rem *******/
 (function(win){
     var remCalc = {};
     var docEl = win.document.documentElement,
